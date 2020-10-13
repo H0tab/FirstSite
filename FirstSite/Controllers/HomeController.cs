@@ -11,27 +11,27 @@ namespace FirstSite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+       public IActionResult Registration()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Registration(User user)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                return Content("Авторизация прошла успешно!");
+                //Redirect("");
+            }
+            else
+                return View(user);
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        
+        public IActionResult LogIn()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Redirect("");
+            return View("Index");
         }
     }
 }
