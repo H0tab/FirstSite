@@ -1,0 +1,36 @@
+// Import
+@import 'nullstyle.scss';
+//
+// Mixins
+@mixin font-playfair {
+    font-family: 'Playfair Display', sans-serif;
+}
+@mixin font-pt_sans {
+    font-family: 'PT Sans', sans-serif;
+}
+
+$grey: #969696;
+// Header
+.wrapper{
+    width: 1110px;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header{
+    @include font-pt_sans;
+    height: 44px;
+    background-color: #000;
+    color: $grey;
+    font-weight: normal;
+    &-info{
+       display: flex;
+
+    }
+    &-register{
+        display: flex;
+    }
+}
